@@ -1,4 +1,4 @@
-package ueb1;
+package ueb0;
 
 public class HelloWorld {
     public static void main(String [] args) {
