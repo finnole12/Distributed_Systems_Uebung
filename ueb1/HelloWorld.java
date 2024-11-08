@@ -1,4 +1,4 @@
-package Distributed_Systems_Uebung.ueb1;
+package ueb1;
 
 public class HelloWorld {
     public static void main(String [] args) {
