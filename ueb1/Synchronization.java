@@ -9,7 +9,7 @@ public class Synchronization {
         final Thread thread1 = new Thread() {
             public void run() {
                 counter.increment();
-                //try { Thread.sleep(100); } catch (Exception e) { System.out.println(e.toString()); }
+                try { Thread.sleep(500); } catch (Exception e) { System.out.println(e.toString()); }
                 int newVal = counter.value();
                 System.out.println("Thread1 after inc:" + newVal);
             }

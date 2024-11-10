@@ -13,7 +13,6 @@ public class Counter {
 
     public synchronized void decrement () {
         int d = c ;
-        try { Thread.sleep(2000); } catch (Exception e) { System.out.println(e.toString()); }
         d = d -1;
         c = d ;
     }
