@@ -10,10 +10,15 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DataBaseImpl implements DataBase {
 
     ArrayList<String> database = new ArrayList<>();
+
+    public DataBaseImpl() {
+        initilizeDatabase();
+    }
 
     public static DataBaseImpl initialize() throws IOException {
         DataBaseImpl database = new DataBaseImpl();
@@ -47,5 +52,11 @@ public class DataBaseImpl implements DataBase {
         ObjectOutputStream out = new ObjectOutputStream ( fos );
         out.writeObject( stub );
         out.close ();
+    }
+
+    private void initilizeDatabase() {
+        for (int i = 0; i < 5000; i++) {
+            database.add("Random Entry number: " + new Random().nextInt());
+        }
     }
 }
