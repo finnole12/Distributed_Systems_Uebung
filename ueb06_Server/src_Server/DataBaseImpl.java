@@ -1,5 +1,7 @@
 package src_Server;
 
+import src_Shared.DataBase;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,8 +17,8 @@ public class DataBaseImpl implements DataBase {
 
     public static DataBaseImpl initialize() throws IOException {
         DataBaseImpl database = new DataBaseImpl();
-        UnicastRemoteObject.exportObject(database);
-        writeStubToFile("dbStub", database);
+        DataBase stub = (DataBase) UnicastRemoteObject.exportObject(database, 0);
+        writeStubToFile("dbStub", stub);
         return database;
     }
 

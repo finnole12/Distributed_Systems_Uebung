@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
+import src_Shared.DataBase;
 
 public class RMI_Client {
 
@@ -19,8 +20,8 @@ public class RMI_Client {
         /* Deserialize stub using Java Serialization */
         FileInputStream fis = new FileInputStream( fileName );
         ObjectInputStream in = new ObjectInputStream( fis );
-        DataBase remoteObj = (DataBase) in . readObject ();
-        in . close ();
+        DataBase remoteObj = (DataBase) in.readObject();
+        in.close ();
         return remoteObj ;
     }
 

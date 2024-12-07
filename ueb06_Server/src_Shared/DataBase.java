@@ -1,4 +1,4 @@
-package src_Client;
+package src_Shared;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
