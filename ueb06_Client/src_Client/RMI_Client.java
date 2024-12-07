@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.rmi.RemoteException;
+
+import src_Shared.DBResult;
 import src_Shared.DataBase;
 
 public class RMI_Client {
@@ -37,5 +39,12 @@ public class RMI_Client {
         System.out.println("CLIENT: reading: " + db.getRecord(4103));
         System.out.println("CLIENT: reading: " + db.getRecord(4107));
         System.out.println("CLIENT: checking Size: " + db.getSize());
+
+        String indexRequest = "Wedel";
+        System.out.println("CLIENT: index of: \"" + indexRequest + "\": " + db.getIndex(indexRequest));
+
+        DBResult result = db.getRecordObj(4105);
+        System.out.println("CLIENT: DBResult: key: " + result.getKey());
+        System.out.println("CLIENT: DBResult: value: " + result.getValue());
     }
 }

@@ -1,5 +1,6 @@
 package src_Server;
 
+import src_Shared.DBResult;
 import src_Shared.DataBase;
 
 import java.io.FileNotFoundException;
@@ -44,6 +45,19 @@ public class DataBaseImpl implements DataBase {
     @Override
     public int getSize() throws RemoteException {
         return database.size();
+    }
+
+    @Override
+    public int getIndex(String record) throws RemoteException {
+        return database.indexOf(record);
+    }
+
+    @Override
+    public DBResult getRecordObj(int index) throws RemoteException {
+        DBResult dbResult = new DBResult();
+        dbResult.setKey(index);
+        dbResult.setValue(getRecord(index));
+        return dbResult;
     }
 
     private static void writeStubToFile ( String fileName , Remote stub )
